@@ -1,5 +1,5 @@
 //Función principal
-function isValidCard(creditCardNumber) {
+function isValidCard(creditCardNumber, sum) {
     // Escribe tu código aquí
    if(indeterminate(creditCardNumber) == true){
 		return 'Ingresa un numero';
@@ -10,7 +10,11 @@ function isValidCard(creditCardNumber) {
 	if(quantity(creditCardNumber) == false){
 		return "Faltan numeros";
 	}
-	validateNum(sum)
+	if(sum %10 !==0){
+		return false;
+	} else{
+		return true;
+	}
 }
 //Función que validan los tipos de datos
 function indeterminate(creditCardNumber){
@@ -27,13 +31,6 @@ function quantity(creditCardNumber){
 	const numberToString = creditCardNumber.toString();
 	const length  = numberToString.length ;
 	if(length !== 16){
-		return false;
-	}
-}
-function validateNum(sum){
-	if (sum%10==0){
-		return true;
-	} else {
 		return false;
 	}
 }
@@ -85,7 +82,7 @@ function sumNumbers(modifNumbers){
 		return a+b;
 	});
 	return sum;
-	validateNum(sum);
+	isValidCard(sum);
 }
 
 // NO TOCAR ESTE CÓDIGO O EXPLOTARÁ LA PC EN 10 SEGUNDOS
